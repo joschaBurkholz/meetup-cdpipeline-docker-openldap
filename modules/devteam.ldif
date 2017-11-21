@@ -1,0 +1,46 @@
+dn: ou=People,dc=example,dc=de
+objectClass: top
+objectClass: organizationalUnit
+description: People
+ou: People
+
+dn: uid=joscha.burkholz,ou=People,dc=example,dc=de
+objectclass: inetOrgPerson
+cn: Joscha Burkholz
+sn: Burkholz
+uid: joscha.burkholz
+userpassword: joscha
+mail: joscha@joscha-burkholz.de
+
+# TECHNISCHE User
+dn: uid=jenkins,ou=People,dc=example,dc=de
+objectclass: inetOrgPerson
+cn: Jenkins
+sn: Master
+uid: jenkins
+userpassword: ZLiXZIgv3fFQVp7y9Yqvm6GYnrB0FoLjiA6OgUCssps=
+mail: jenkins@joscha-burkholz.de
+
+# GRUPPEN
+dn: ou=Groups,dc=example,dc=de
+objectClass: organizationalunit
+objectClass: top
+description: Groups
+ou: Groups
+
+dn: cn=JENKINS_ADMIN,ou=Groups,dc=example,dc=de
+objectClass: groupOfUniqueNames
+objectClass: top
+ou: Groups
+description: Jenkins Administrator
+uniqueMember: uid=joscha.burkholz, ou=People, dc=example,dc=de
+cn: JENKINS_ADMIN
+
+dn: cn=NEXUS_ADMIN,ou=Groups,dc=example,dc=de
+objectClass: groupOfUniqueNames
+objectClass: top
+ou: Groups
+description: Nexus Administrator
+uniqueMember: uid=joscha.burkholz, ou=People, dc=example,dc=de
+uniqueMember: uid=jenkins, ou=People, dc=example,dc=de
+cn: NEXUS_ADMIN
